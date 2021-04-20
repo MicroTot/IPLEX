@@ -1,0 +1,591 @@
+<!-- <header>
+  <h1> 2021 IPLEX EMPLOYEES DASHBOARD</h1>
+</header>
+<div class="toolbar">
+  <h2>Employees</h2>
+  <div class="button-group">
+      <div class="button">Add employee</div>
+     <div class="button button-outline">Export employees</div>
+  </div>
+</div>
+
+<div class="team">
+  <div class="team-members table">
+      <div class="table-header table-row">
+          <div class="table-col">Name</div>
+          <div class="table-col">Email</div>
+          <div class="table-col">Phone</div>
+          <div class="table-col">Department</div>
+          <div class="table-col">Salary</div>
+          <div class="table-col table-actions">Actions</div>
+      </div>
+      <div class="table-row">
+          <div class="table-col name">Nicky</div>
+          <div class="table-col email">realnickyadams@gmail.com</div>
+          <div class="table-col name">0713754946</div>
+          <div class="table-col name">Software Dept</div>
+          <div class="table-col name">Kshs 100,000</div>
+          <div class="table-col actions">
+              <div class="button-group group-end">
+                  <div class="button button-small">update</div>
+                  <div class="button button-small button-alert">delete</div>
+              </div>
+          </div>
+      </div>
+      <div class="table-row">
+          <div class="table-col name">Nicky Adams</div>
+          <div class="table-col email">realnickyadams@gmail.com</div>
+          <div class="table-col name">0713754946</div>
+          <div class="table-col name">Software Dept</div>
+          <div class="table-col name">Kshs 100,000</div>
+          <div class="table-col actions">
+              <div class="button-group group-end">
+                  <div class="button button-small">update</div>
+                  <div class="button button-small button-alert">delete</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style>
+  :host{
+  --primary:#611F69;
+  --primary-alt:#a561aa;
+  --light:#f7fcfe;
+  --light-alt:#F8F8F8;
+  --grey:#777474;
+  --dark:#131A26;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"Fira sans", sans-serif;
+}
+body {
+  background-color: var(--light);
+}
+main{
+  width: 100vw;
+  overflow: hidden;
+}
+input, button{
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.button{
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+.button:hover{
+  background-color: var(--primary-alt);
+}
+.button.button-outline{
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  padding: 6px 14px;
+  color: var(--primary);
+}
+.button.button-outline:hover{
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.button.button-small{
+  padding: 4px 8px;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+.button.button-alert{
+  background-color: crimson;
+  
+}
+.button-group{
+  display: flex;
+  margin: 0 -8px;
+  
+}
+.button-group.group-end{
+  justify-content: flex-end;
+}
+.button-group.button{
+  margin: 0 8px;
+}
+.team{
+    padding: 16px;
+
+}
+.table-row{
+    display: flex;
+    align-items: center;
+}
+.table-col{
+    flex: 1 1 33.333%;
+    padding: 16px;
+    color: var(--grey);
+}
+.table-row{
+    background-color: #FFFFFF;
+}
+.table-row:nth-child(2n+1){
+    background-color: var(--light-alt);
+}
+.table .table-header{
+    background-color: var(--dark);
+}
+.table .table-header .table-col{
+    color: var(--light);
+}
+.table-actions{
+    text-align: right;
+}
+.toolbar{
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.toolbar h2{
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+header{
+       display: block;
+       padding: 16px;
+       background-color: var(--dark);
+  }
+  header h1{
+     color: #fff;
+     font-size: 28px;
+     text-align: center;
+  }
+</style> -->
+
+
+<header>
+  <h1> 2021 IPLEX EMPLOYEES DASHBOARD</h1>
+</header>
+<div class="toolbar">
+  <h2>Employees</h2>
+  <div class="button-group">
+    <div class="button" routerLink="add">Add employee</div>
+   <div class="button button-outline">Export employees</div>
+</div>
+</div>
+
+
+<body>
+  <p class="instructions">
+  <table class="table-editable">
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Dept.</th>
+      <th>Salary</th>
+      <th></th>
+      <th></th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of name">
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.department}}</td>
+        <td>{{item.salary}}</td>
+        <td><div class="button button-small">update</div></td>
+        <td><div class="button button-small button-alert" (click)="remove(id)">delete</div></td>
+      </tr>
+
+
+    </tbody>
+  
+  
+  
+  </table>
+
+  
+<router-outlet></router-outlet>
+</body>
+
+
+
+
+    <style>
+      input:focus{
+  outline: none;
+}
+.instructions{
+  font-size: 18px;
+  color: #23262d;
+  font-family: Arial, Tahoma;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.table-editable{
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  table-layout: auto;
+  border-collapse: collapse;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  position: relative;
+  background: white;
+  font-family: "Questrial";
+  font-size: 14px;
+}
+
+.table-editable thead{
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.table-editable thead th{
+  padding: 20px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: var(--dark);
+  color: rgb(255, 255, 255);
+  text-align: left;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #C1C3D1;
+  border-right: 1px solid #343a45;
+}
+.table-editable thead th:first-child{
+  border-top-left-radius: 5px;
+}
+.table-editable thead th:last-child{
+  border-right: none;
+  border-top-right-radius: 5px;
+}
+
+.table-editable tbody tr td{
+  position: relative;
+  padding: 20px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: white;
+  color: #414141;
+  font-weight: 100;
+  letter-spacing: .7px;
+}
+.table-editable tbody{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.table-editable tbody tr:last-child{
+  padding: 100px;
+}
+
+/** STATE ROW AND COLUMN **/
+.table-editable thead th:last-child{
+  padding: 20px 15px;
+}
+.table-editable tbody tr td:last-child{
+  padding: 20px 15px;
+}
+
+/** STATE DOT AND STATE SELECTION AREA **/
+.state-dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.open{
+  width: 9px;
+  height: 9px;
+  background: transparent;
+  border: 3px solid green;
+}
+.hold{ background: orange; }
+.complete{ background: green; }
+.cancelled{ background: red; }
+
+.new-row{
+  display: none;
+  opacity: 0.3;
+  filter:alpha(opacity=30);
+}
+.edit{
+  position: absolute;
+  background: #fff;
+  width: 105%;
+  padding: 3px;
+  border-radius: .3em;
+  z-index: 100;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.edit_state{
+  height: auto;
+  width: auto;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounceInCenterX 0.2s;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+.state_option{
+  width: 100%;
+  position: relative;
+  display: block;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 0.3em;
+  overflow: hidden;
+}
+.state_option:after {
+  content: "";
+  background: transparent;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.state_option:hover{
+  background: #eee;
+}
+.edit_txt{
+  height: 105%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: bounceInCenter 0.2s;
+}
+
+@keyframes bounceInCenter {
+  0% { transform: translate(-50%, -50%) scale(0);}
+  60% { transform: translate(-50%, -50%) scale(1); }
+  85% { transform: translate(-50%, -50%) scale(0.9); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes bounceInCenterX {
+  0% { transform: translateX(-50%) scale(0);}
+  60% { transform: translateX(-50%) scale(1); }
+  85% { transform: translateX(-50%) scale(0.9); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+.edit input{
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  border: none;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.edit .bubble{
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: -80px;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  padding: 2px;
+  cursor: pointer;
+  animation: bounceIn 2s linear;
+}
+.edit .bubble:before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 20px 15px 0;
+  border-color: transparent #eee transparent transparent;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.edit .close, .edit .chng{
+  position: relative;
+  width: 50px;
+  height: 45%;
+  border-radius: 3px;
+  color: white;
+  transition: 200ms;
+}
+
+.edit .close{
+  background: red;
+}
+
+.edit .close:active{
+  background: #fc7474;
+}
+
+.edit .chng{
+  background: green;
+  margin-top: 1px;
+  margin-bottom: 4px;
+}
+.edit .chng:active{
+  background: #22b522;
+}
+
+.edit div i{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* ............................ */
+:host{
+  --primary:#611F69;
+  --primary-alt:#a561aa;
+  --light:#f7fcfe;
+  --light-alt:#F8F8F8;
+  --grey:#777474;
+  --dark:#131A26;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"Fira sans", sans-serif;
+}
+body {
+  background-color: var(--light);
+}
+main{
+  width: 100vw;
+  overflow: hidden;
+}
+input, button{
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.button{
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+.button:hover{
+  background-color: var(--primary-alt);
+}
+.button.button-outline{
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  padding: 6px 14px;
+  color: var(--primary);
+}
+.button.button-outline:hover{
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.button.button-small{
+  padding: 4px 8px;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+.button.button-alert{
+  background-color: crimson;
+  
+}
+.button-group{
+  display: flex;
+  margin: 0 -8px;
+  
+}
+.button-group.group-end{
+  justify-content: flex-end;
+}
+.button-group.button{
+  margin: 0 8px;
+}
+.team{
+    padding: 16px;
+
+}
+.table-row{
+    display: flex;
+    align-items: center;
+}
+.table-col{
+    flex: 1 1 33.333%;
+    padding: 16px;
+    color: var(--grey);
+}
+.table-row{
+    background-color: #FFFFFF;
+}
+.table-row:nth-child(2n+1){
+    background-color: var(--light-alt);
+}
+.table .table-header{
+    background-color: var(--dark);
+}
+.table .table-header .table-col{
+    color: var(--light);
+}
+.table-actions{
+    text-align: right;
+}
+.toolbar{
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.toolbar h2{
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+header{
+       display: block;
+       padding: 16px;
+       background-color: var(--dark);
+  }
+  header h1{
+     color: #fff;
+     font-size: 28px;
+     text-align: center;
+  }
+    </style>

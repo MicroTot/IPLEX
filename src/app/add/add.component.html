@@ -1,0 +1,71 @@
+<br>
+    <h1 style="text-align: center;">Add New Employee</h1>
+
+    <body>
+        <div id="wrap" ng-app>
+      
+      <form novalidate name="myform" action="#">
+        <div class="form_wrap">
+            <input type="text" name="name" placeholder="Name..." (change)="onNameChanged($event)"/>
+            <input type="email" name="email"  placeholder="Email..." (change)="onEmailChanged($event)"/>
+            <input type="number" name="phone"  placeholder="Telephone..." (change)="onPhoneChanged($event)"/>
+            <input type="text" name="department" placeholder="Department..." (change)="onDepartmentChanged($event)"/>
+            <input type="number" name="salary"  placeholder="Salary..." (change)="onSalaryChanged($event)"/>
+        </div>
+        <div>
+          <input type="submit" (click)="postData()" />
+        </div>
+      </form>     
+      </div>
+      </body>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Muli);
+*{
+  margin:0;
+ font-family: 'Muli', sans-serif;
+}
+
+body{
+  background-color: white;
+}
+
+h1{ 
+  margin-bottom:30px; 
+  font-size:1.6em;
+  color:#B52E31;
+}
+
+input[type="submit"]{
+  color:#222222;
+}
+#wrap{
+  background:#F6F6F6;
+  width:800px;
+  margin:0 auto; 
+  height:400px;
+  text-align:center;
+}
+
+form input{
+  padding:15px;
+  margin-bottom:10px;
+  border-radius:7px;
+  border:none;
+  width:80%;
+}
+
+form{
+  margin: 0 auto;  
+  width:400px;
+  padding:30px;
+}
+.error{height:30px; color:#B52E31;
+}
+input.ng-valid.ng-touched{
+  border:2px solid green;
+}
+input.ng-invalid.ng-touched {
+  border:2px solid #B52E31;
+ }
+</style>
