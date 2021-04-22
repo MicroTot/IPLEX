@@ -19,8 +19,8 @@ export class ServicesService {
     return this.http.post<any>(endpoint, uploadData);
   }
 
-  public deleteEmployee(deleteData){
-    return this.http.get(endpoint, deleteData);
+  public deleteEmployee(id){
+    return this.http.delete(endpoint, id);
   }
 
   public updateEmployee(updateData){
