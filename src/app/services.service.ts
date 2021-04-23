@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const endpoint='http://127.0.0.1:8000/';
+const endpoint='http://127.0.0.1:8000/api/employees/';
 
 @Injectable({
   providedIn: 'root'
