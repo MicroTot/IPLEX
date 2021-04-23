@@ -28,8 +28,12 @@ export class AppComponent {
     })
   }
 
-  remove(id: any) {
-    this.api.deleteEmployee(this.name[id]);
-    this.name.splice(id, 1);
+  deleteEmployee(id){
+    return this.api.deleteEmployee(id).subscribe(data => {
+      console.log(data);
+    },error=>{
+      console.log(error)
+    })
   }
+  
 } 
